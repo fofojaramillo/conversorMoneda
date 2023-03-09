@@ -10,10 +10,10 @@ public class currencyAPI {
 	
 	private static String URL_GENERATED;
 	
-	public static Object requestCurrency(String currency,String amount){
+	public static Object requestCurrency(String fromCurrency, String toCurrency,String amount){
 		
-	URL_GENERATED = "https://api.getgeoapi.com/v2/currency/convert?api_key=bedd97eb7c541d81243b6aaddeb7e66164182ca6&from=MXN&to="
-			+ currency + "&amount=" + amount + "&format=json";
+	URL_GENERATED = "https://api.getgeoapi.com/v2/currency/convert?api_key=bedd97eb7c541d81243b6aaddeb7e66164182ca6&from="+fromCurrency+"&to="
+			+ toCurrency + "&amount=" + amount + "&format=json";
 	
 	//Se consume la API
 	StringBuilder result = new StringBuilder();
