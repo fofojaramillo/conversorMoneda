@@ -17,14 +17,14 @@ public class menu {
 	}
 	
 	public static void initial() throws IOException {
-		String[] options = { "Conversor de Moneda", "Texto a Binario" };
+		String[] options = { "Conversor de Moneda", "Decinal a Binario" };
 		ImageIcon arrows = icons.getArrowsIcon();
 		Object response;
 		// Ventana inicial de opciones
 		response = JOptionPane.showInputDialog(null, "Elije un conversor", "Conversor", JOptionPane.INFORMATION_MESSAGE,
 				arrows, options, "Conversor de Moneda");
 		if(response == "Conversor de Moneda") showAmount();
-		//if(response == "Texto a Binario") showBinary();
+		if(response == "Decinal a Binario") showBinary();
 	}
 	static Object amount;
 	public static void showAmount() throws IOException {
@@ -56,6 +56,11 @@ public class menu {
 		JOptionPane.showMessageDialog(null, "El monto de " + amount + " MXN convertido a " + currencyName
 				+ " es de: " + rateForAmount + " " + currency);
 		showContinue();
+	}
+	public static void showBinary() {
+		String decimal = JOptionPane.showInputDialog("Introduzca el número que desea convertir");
+		String result = binaryConvertered.toBinary(decimal);
+		JOptionPane.showMessageDialog(null, result);
 	}
 	public static void showContinue() throws IOException {
 		int goOn;
