@@ -25,23 +25,26 @@ public class menu {
 		if(response == "Decinal a Binario") showBinary();
 	}
 	
-	static String[] monedas = { "MXN", "USD", "EUR", "GBP", "JPY", "KRW" };
 	static Object fromCurrency;
 	
 	public static void choiceCurrency() throws IOException {
 		//Se guarda la moneda de destino a la conversion
-		fromCurrency = JOptionPane.showInputDialog(null, "Elije la moneda que quieres convertir", "Monedas",
-				JOptionPane.INFORMATION_MESSAGE, null, monedas, monedas[0]);
-		showAmount();
+		String[] monedas = { "MXN", "USD", "EUR", "GBP", "JPY", "KRW" };
+			fromCurrency = JOptionPane.showInputDialog(null, "Elije la moneda que quieres convertir", "Monedas",
+					JOptionPane.INFORMATION_MESSAGE, null, monedas, monedas[0]);
+			if(fromCurrency != null)showAmount();
+			if(fromCurrency == null)initial();
 	}
 	
 	static Object amount;
 	
 	public static void showAmount() throws IOException {
 		amount = JOptionPane.showInputDialog("Introduzca el monto que desea convertir");
+		if(amount == null) initial();;
 		if (Auxi.isDouble(amount.toString())) {
 			showCurrency();
-		}else {
+		}
+		else {
 			JOptionPane.showMessageDialog(null, "Entrada no valida, tiene que ser un valor númerico");
 		}
 	}
@@ -50,11 +53,13 @@ public class menu {
 	
 	public static void showCurrency() throws IOException {
 		//Se quita el elemento seleccionado en choiceCurrency
+		String[] monedas = { "MXN", "USD", "EUR", "GBP", "JPY", "KRW" };
 		monedas = Auxi.takeOff(monedas, fromCurrency);
 		//Se guarda la moneda de destino a la conversion
 		toCurrency = JOptionPane.showInputDialog(null, "Elije la moneda a la que quieres convertir", "Monedas",
 				JOptionPane.INFORMATION_MESSAGE, null, monedas, monedas[0]);
-		showResult();
+		if(toCurrency != null)showResult();
+		if(toCurrency == null)initial();
 	}
 	
 	public static void showResult() throws IOException {
