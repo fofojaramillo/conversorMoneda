@@ -19,7 +19,7 @@ public class menu {
 		ImageIcon arrows = icons.getArrowsIcon();
 		Object response;
 		// Ventana inicial de opciones
-		response = JOptionPane.showInputDialog(null, "Elije un conversor", "Conversor", JOptionPane.INFORMATION_MESSAGE,
+		response = JOptionPane.showInputDialog(null, "Elige un conversor", "Conversor", JOptionPane.INFORMATION_MESSAGE,
 				arrows, options, "Conversor de Moneda");
 		if(response == "Conversor de Moneda") choiceCurrency();
 		if(response == "Decinal a Binario") showBinary();
@@ -30,7 +30,7 @@ public class menu {
 	public static void choiceCurrency() throws IOException {
 		//Se guarda la moneda de destino a la conversion
 		String[] monedas = { "MXN", "USD", "EUR", "GBP", "JPY", "KRW" };
-			fromCurrency = JOptionPane.showInputDialog(null, "Elije la moneda que quieres convertir", "Monedas",
+			fromCurrency = JOptionPane.showInputDialog(null, "Elige la moneda que quieres convertir", "Monedas",
 					JOptionPane.INFORMATION_MESSAGE, null, monedas, monedas[0]);
 			if(fromCurrency != null)showAmount();
 			if(fromCurrency == null)initial();
@@ -56,7 +56,7 @@ public class menu {
 		String[] monedas = { "MXN", "USD", "EUR", "GBP", "JPY", "KRW" };
 		monedas = Auxi.takeOff(monedas, fromCurrency);
 		//Se guarda la moneda de destino a la conversion
-		toCurrency = JOptionPane.showInputDialog(null, "Elije la moneda a la que quieres convertir", "Monedas",
+		toCurrency = JOptionPane.showInputDialog(null, "Elige la moneda a la que quieres convertir", "Monedas",
 				JOptionPane.INFORMATION_MESSAGE, null, monedas, monedas[0]);
 		if(toCurrency != null)showResult();
 		if(toCurrency == null)initial();
