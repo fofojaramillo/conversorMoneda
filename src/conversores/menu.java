@@ -57,10 +57,11 @@ public class menu {
 				+ " es de: " + rateForAmount + " " + currency);
 		showContinue();
 	}
-	public static void showBinary() {
+	public static void showBinary() throws IOException {
 		String decimal = JOptionPane.showInputDialog("Introduzca el número que desea convertir");
 		String result = binaryConvertered.toBinary(decimal);
-		JOptionPane.showMessageDialog(null, result);
+		JOptionPane.showMessageDialog(null, "El numero "+decimal+" convertido a binario es: "+result);
+		showContinue();
 	}
 	public static void showContinue() throws IOException {
 		int goOn;
